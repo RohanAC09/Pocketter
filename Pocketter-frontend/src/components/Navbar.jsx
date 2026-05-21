@@ -29,7 +29,7 @@ function Navbar() {
               <input
                 type="search"
                 className="form-control"
-                placeholder="Search Users..."
+                placeholder="Search User..."
                 aria-label="Search"
               />
             </form>

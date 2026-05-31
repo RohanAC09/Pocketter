@@ -3,15 +3,11 @@ import { Link, Navigate } from "react-router-dom";
 import { AuthContext } from "../../auth/AuthContext";
 
 function Navbar({ basePath='/Pocketter' }) {
-  const { token, logout } = useContext(AuthContext);
+  const { username, token, logout } = useContext(AuthContext);
 
   function handleLogout() {
-    <Navigate to={`${basePath}/login`} replace />
     logout();
-  }
-
-  function handleRegister() {
-    <Navigate to={`${basePath}/register`} replace />
+    return <Navigate to={`${basePath}/login`} replace />;
   }
 
   return (
@@ -19,14 +15,14 @@ function Navbar({ basePath='/Pocketter' }) {
       <header className="pb-3 mb-3 border-bottom">
         <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-sm-between">
           <div className="col-12 col-sm-auto d-flex flex-wrap">
-            <Link to={`${basePath}/profile`} className="nav-link pe-4">
+            <Link to={`${basePath}/profile/${username}`} className="nav-link pe-4">
               <h1 className="app-title">Pocketter</h1>
             </Link>
             <div className="">
               { token && (
                 <ul className="nav pt-1 ">
                   <li>
-                    <Link to={`${basePath}/profile`} 
+                    <Link to={`${basePath}/profile/${username}`} 
                       className="col-6 col-sm-auto nav-link px-2" >
                       <h5 className="nav-items">Profile</h5>
                     </Link>

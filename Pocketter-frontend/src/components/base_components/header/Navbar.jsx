@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { Link, Navigate } from "react-router-dom";
 import { AuthContext } from "../../auth/AuthContext";
 
-function Navbar({ basePath }) {
+function Navbar({ basePath='/Pocketter' }) {
   const { token, logout } = useContext(AuthContext);
 
   function handleLogout() {
@@ -26,19 +26,15 @@ function Navbar({ basePath }) {
               { token && (
                 <ul className="nav pt-1 ">
                   <li>
-                    <Link
-                      to={`${basePath}/profile`}
-                      className="col-6 col-sm-auto nav-link px-2 link-secondary"
-                    >
-                      <h5>Profile</h5>
+                    <Link to={`${basePath}/profile`} 
+                      className="col-6 col-sm-auto nav-link px-2" >
+                      <h5 className="nav-items">Profile</h5>
                     </Link>
                   </li>
                   <li>
-                    <Link
-                      to={`${basePath}/feed`}
-                      className="col-6 col-sm-auto nav-link px-2 link-body-emphasis"
-                    >
-                      <h5>Feed</h5>
+                    <Link to={`${basePath}/feed`}
+                      className="col-6 col-sm-auto nav-link px-2" >
+                      <h5 className="nav-items">Feed</h5>
                     </Link>
                   </li>
                 </ul>

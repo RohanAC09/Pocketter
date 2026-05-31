@@ -25,6 +25,11 @@ header {
   font-size: 2rem;
 }
 
+.nav-items {
+  color: #fff;
+  font-weight: 500;
+}
+
 header form {
   min-width: 150px;
   max-width: 450px;

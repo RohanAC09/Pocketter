@@ -18,10 +18,18 @@ header {
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
 }
 
-header h1 {
+.app-title {
   color: #fff;
   font-family: "McLaren", cursive;
   font-weight: 200;
+  font-size: 2rem;
+}
+
+header form {
+  min-width: 150px;
+  max-width: 450px;
+  border-radius: 7px;
+  box-shadow: 0 1px 5px rgb(138, 137, 137);
 }
 
 .btn-primary {
@@ -43,7 +51,7 @@ footer {
 footer p {
   color: #ccc;
 }
-.note {
+/* .note {
   background: #fff;
   border-radius: 7px;
   box-shadow: 0 2px 5px #ccc;
@@ -76,9 +84,9 @@ footer p {
   outline: none;
   background-color:  #eee;
   border-radius: 15%;
-}
+} */
 
-form {
+/* form {
   position: relative;
   width: 480px;
   margin: 30px auto 20px auto;
@@ -114,4 +122,4 @@ form button {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   cursor: pointer;
   outline: none;
-}
+} */

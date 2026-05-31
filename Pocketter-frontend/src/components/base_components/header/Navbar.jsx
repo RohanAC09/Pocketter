@@ -1,25 +1,34 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { AuthContext } from "../../auth/AuthContext";
 
 function Navbar() {
-  const { token } = useContext(AuthContext);
+  const { token, logout } = useContext(AuthContext);
+
+  function handleLogout() {
+    logout();
+    <Navigate to="/login" replace />
+  }
+
+  function handleRegister() {
+    <Navigate to="/register" replace />
+  }
 
   return (
     <>
       <header className="pb-3 mb-3 border-bottom">
-        <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-          <div className="col-12 d-flex me-lg-auto m-0 justify-content-start mb-md-0">
-            <Link to="/profile" className="nav-link m-0">
-              <h1>Pocketter</h1>
+        <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-sm-between">
+          <div className="col-12 col-sm-auto d-flex flex-wrap">
+            <Link to="/profile" className="nav-link pe-4">
+              <h1 className="app-title">Pocketter</h1>
             </Link>
-            <div className="col-5 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-              { token !== null && (
-                <ul className="nav pt-1">
+            <div className="">
+              { token && (
+                <ul className="nav pt-1 ">
                   <li>
                     <Link
                       to="/profile"
-                      className="nav-link ps-4 pe-2 link-secondary"
+                      className="col-6 col-sm-auto nav-link px-2 link-secondary"
                     >
                       <h5>Profile</h5>
                     </Link>
@@ -27,7 +36,7 @@ function Navbar() {
                   <li>
                     <Link
                       to="/feed"
-                      className="nav-link px-2 link-body-emphasis"
+                      className="col-6 col-sm-auto nav-link px-2 link-body-emphasis"
                     >
                       <h5>Feed</h5>
                     </Link>
@@ -36,10 +45,10 @@ function Navbar() {
               )}
             </div>
           </div>
-          { token !== null ? (
-            <div className="col-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          { token && (
+            <div className="col-12 col-md-6 col-lg-4 d-flex mb-2 justify-content-start mb-md-0">
               <form
-                className="mt-2 mt-xl-0 me-sm-3"
+                className="mt-1 mt-md-0 me-2"
                 role="search"
               >
                 <input
@@ -49,17 +58,14 @@ function Navbar() {
                   aria-label="Search"
                 />
               </form>
-              <button className="btn btn-primary me-3 mt-2 mt-xl-0">
+              <button className="btn btn-primary me-2 me-md-4 mt-1 mt-md-0">
                 Search
               </button>
-              <button className="btn btn-primary me-3 mt-2 mt-xl-0">Logout</button>
+              <button className="btn btn-primary me-1 mt-1 mt-md-0" onClick={handleLogout}>
+                Logout
+              </button>
             </div>
-          ) : (
-            // <span className="welcome-msg">Welcome, {username}!</span>
-            <Link to="/login" className="btn btn-primary me-3 mt-2 mt-xl-0">
-              Login
-            </Link>
-          )}
+          ) }
         </div>
       </header>
     </>

@@ -3,6 +3,7 @@ package com.rohan.post.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,6 +18,7 @@ import com.rohan.post.dto.response.PostCommonResponse;
 import com.rohan.post.service.PostService;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/api/v1/post")
 public class PostController {
 	

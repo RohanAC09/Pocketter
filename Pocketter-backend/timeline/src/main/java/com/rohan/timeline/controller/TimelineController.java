@@ -2,6 +2,7 @@ package com.rohan.timeline.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,6 +11,7 @@ import com.rohan.timeline.dto.response.AggregatedPosts;
 import com.rohan.timeline.service.TimelineService;
 
 @RestController
+@CrossOrigin
 public class TimelineController {
 	
 	@Autowired

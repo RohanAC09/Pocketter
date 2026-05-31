@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../auth/AuthContext";
-// import { loginAPI } from '../api'
+import api from "../api/api";
 
 export default function Register() {
   const [username, setUsername] = useState("");
@@ -16,9 +16,7 @@ export default function Register() {
     setLoading(true);
     setError(null);
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1000)); // simulate network delay
-      const res = { token: "mock-token" }; // await loginAPI(username.trim(), password)
-      // expected res: { token, user }
+      const res = await api.post("http://localhost:9016/api/v1/auth/register", { email: username.trim(), password });
       login({ token: res.token, user: res.user });
       navigate("/Pocketter/profile", { replace: true });
     } catch (err) {

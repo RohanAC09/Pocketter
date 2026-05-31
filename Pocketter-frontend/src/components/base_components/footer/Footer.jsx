@@ -10,7 +10,7 @@ function Footer() {
           </div>
           <ul className="nav col-md-4 justify-content-end list-unstyled d-flex">
             <li className="ms-3">
-              <a className="text-body-secondary" href="#" aria-label="Facebook">
+              <a className="text-body-secondary" href="https://www.linkedin.com/in/rohanchinchkar/" aria-label="LinkedIn">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="20"
@@ -24,7 +24,7 @@ function Footer() {
               </a>
             </li>
             <li className="ms-3">
-              <a className="text-body-secondary" href="#" aria-label="Instagram">
+              <a className="text-body-secondary" href="https://www.instagram.com/rohan_rc09/" aria-label="Instagram">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="20"

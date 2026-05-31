@@ -40,6 +40,40 @@ header form {
   cursor: pointer;
 }
 
+.login-page {
+  height: 70vh;
+}
+
+.login-card {
+  background: #fcf9ff;
+  border-radius: 7px;
+  box-shadow: 0 2px 5px #ccc;
+  padding: 20px;
+}
+
+.login-title {
+  font-size: 1.5em;
+  margin-bottom: 12px;
+  color: #B13DFF;
+  font-weight:600;
+}
+
+.input{
+  border-radius: 999px;
+  border: none;
+  padding:14px 18px;
+  font-size:16px;
+  box-shadow: 0 4px 10px rgba(13,40,60,0.06);
+  outline: none;
+}
+.input::placeholder{ color:#9fb6c9; }
+
+.input-error{ 
+  color:#a94442; 
+  margin-top:6px; 
+  font-size:14px; 
+}
+
 footer {
   position: absolute;
   text-align: center;

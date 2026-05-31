@@ -1,9 +1,12 @@
-import UserPhoto from "../assets/User-photo.jpg";
-import PofilePhoto from "../assets/Meghalaya_DP.jpg";
+import { useContext } from "react";
+import { AuthContext } from "../auth/AuthContext";
+import UserPhoto from "../../assets/User-photo.jpg";
+import PofilePhoto from "../../assets/Meghalaya_DP.jpg";
 import FollowersDetail from "../dto/FollowersDetail";
 
 export default function Profile() {
-  let username = "rohan_chinchkar";
+  const { username } = useContext(AuthContext);
+  
   return (
     <>
       <div className="container col-xxl-8 px-4 py-5">

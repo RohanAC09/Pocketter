@@ -2,16 +2,16 @@ import { useContext } from "react";
 import { Link, Navigate } from "react-router-dom";
 import { AuthContext } from "../../auth/AuthContext";
 
-function Navbar() {
+function Navbar({ basePath }) {
   const { token, logout } = useContext(AuthContext);
 
   function handleLogout() {
+    <Navigate to={`${basePath}/login`} replace />
     logout();
-    <Navigate to="/login" replace />
   }
 
   function handleRegister() {
-    <Navigate to="/register" replace />
+    <Navigate to={`${basePath}/register`} replace />
   }
 
   return (
@@ -19,7 +19,7 @@ function Navbar() {
       <header className="pb-3 mb-3 border-bottom">
         <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-sm-between">
           <div className="col-12 col-sm-auto d-flex flex-wrap">
-            <Link to="/profile" className="nav-link pe-4">
+            <Link to={`${basePath}/profile`} className="nav-link pe-4">
               <h1 className="app-title">Pocketter</h1>
             </Link>
             <div className="">
@@ -27,7 +27,7 @@ function Navbar() {
                 <ul className="nav pt-1 ">
                   <li>
                     <Link
-                      to="/profile"
+                      to={`${basePath}/profile`}
                       className="col-6 col-sm-auto nav-link px-2 link-secondary"
                     >
                       <h5>Profile</h5>
@@ -35,7 +35,7 @@ function Navbar() {
                   </li>
                   <li>
                     <Link
-                      to="/feed"
+                      to={`${basePath}/feed`}
                       className="col-6 col-sm-auto nav-link px-2 link-body-emphasis"
                     >
                       <h5>Feed</h5>

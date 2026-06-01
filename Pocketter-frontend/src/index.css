@@ -75,7 +75,6 @@ header form {
 
 .input-error{ 
   color:#a94442; 
-  margin-top:6px; 
   font-size:14px; 
 }
 
@@ -86,6 +85,26 @@ header form {
 .profile-follow {
   width: 100%;
   height: 45px;
+}
+
+.user-not-found {
+  height: 60vh;
+  font-size: 1.2em;
+  color: #888;
+}
+
+.post-timestamp {
+  font-size: 0.9em;
+  color: #888;
+  margin-top: 8px;
+}
+
+.post-card {
+  background: #fff;
+  border-radius: 7px;
+  box-shadow: 0 2px 5px #ccc;
+  padding: 10px;
+  margin: 16px auto;
 }
 
 /* .note {

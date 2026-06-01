@@ -21,8 +21,11 @@ export default function Register() {
         throw new Error("Passwords do not match");
       }
       const res = await api.post("http://localhost:9016/api/v1/auth/register", { email: username.trim(), password });
-      login({ token: res.token, user: res.user });
-      navigate("/Pocketter/profile", { replace: true });
+      if(res.status === 200) {
+        // setLoading(false);
+        setError(res.data.message);
+      }
+      // navigate("/Pocketter/login", { replace: true });
     } catch (err) {
       setError(err?.message || "Registration failed");
     } finally {
@@ -74,17 +77,22 @@ export default function Register() {
 
           {/* <div className="forgot">Forgot Password?</div> */}
 
-          {error && <div className="error">{error}</div>}
+          
 
-          <div className="d-flex justify-content-center pt-2">
-            <button
-              className="btn btn-primary"
-              type="submit"
-              disabled={loading}
-            >
-              {loading ? "Registering…" : "Register"}
-            </button>
+          <div className="pt-2">
+            {error && <div className="input-error text-center mb-2 mx-0 px-0">{error}</div>}
+
+            <div className="d-flex justify-content-center">
+              <button
+                className="btn btn-primary"
+                type="submit"
+                disabled={loading}
+              >
+                {loading ? "Registering…" : "Register"}
+              </button>
+            </div>
           </div>
+          
         </form>
         <div className="mt-3 d-flex align-items-center gap-2 input-footer">
           <p>Already have an account?

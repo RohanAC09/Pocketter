@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../auth/AuthContext";
-import UserPhoto from "../../assets/User-photo.jpg";
+import UserPhoto from "../../assets/User_photo.jpg";
 import PofilePhoto from "../../assets/Meghalaya_DP.jpg";
 import FollowersDetail from "../dto/FollowersDetail";
 

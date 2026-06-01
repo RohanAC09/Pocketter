@@ -9,7 +9,7 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const { token, login } = useContext(AuthContext);
+  const { username:userId, token, login } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const onSubmit = async (e) => {
@@ -35,7 +35,7 @@ export default function Login() {
   useEffect(() => {
     console.log("Login token:", token);
     if ( token ) {
-      navigate("/Pocketter/profile/"+username, { replace: true });
+      navigate("/Pocketter/profile/"+userId, { replace: true });
     }
   }, [ token ]);
 
@@ -67,17 +67,20 @@ export default function Login() {
 
             {/* <div className="forgot">Forgot Password?</div> */}
 
-            {error && <div className="error">{error}</div>}
+            <div className="pt-2">
+              {error && <div className="input-error text-center mb-2 mx-0 px-0">{error}</div>}
 
-            <div className="d-flex justify-content-center pt-2">
-              <button
-                className="btn btn-primary"
-                type="submit"
-                disabled={loading}
-              >
-                {loading ? "Logging…" : "Login"}
-              </button>
+              <div className="d-flex justify-content-center">
+                <button
+                  className="btn btn-primary"
+                  type="submit"
+                  disabled={loading}
+                >
+                  {loading ? "Logging…" : "Login"}
+                </button>
+              </div>
             </div>
+
           </form>
           <div className="mt-3 d-flex align-items-center gap-2 input-footer">
             <p>Don't have an account?

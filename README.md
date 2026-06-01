@@ -5,8 +5,11 @@
 - People can follow/unfollow other users
 - User can view profiles, edit their own profile
 
+<img height="468" alt="Pocketter Application Demo" src="https://github.com/user-attachments/assets/15ab1eb8-5c02-467e-9bbc-d612c0ec0d01" />
+
 ## Table of Content
 - [Features](#features)
+- [Screen size Compatibility](#screen-size-compatibility)
 - [Architecture Diagram](#architecture-diagram)
 - [Trade-offs](#trade-offs)
 - [Microservices](#microservices)
@@ -21,10 +24,27 @@
 - Centralised authentication with JWT
 - Zero-trust authorisation at microservices
 
+## Screen size Compatibility
+- Mobile screen  
+<div align="center">
+  <img height="501" alt="Login screen on mobile" src="https://github.com/user-attachments/assets/bdbaf1b2-d6c5-4311-94bb-29cf58249d61" />
+  <img height="500" alt="Register screen on mobile" src="https://github.com/user-attachments/assets/f1d3a95e-c253-4ccf-b212-9ba99a5651cc" />
+  <img height="501" alt="Home screen on mobile" src="https://github.com/user-attachments/assets/34db73d0-b439-426d-89f6-19719caa8b43" />
+</div>
+
+- Laptop screen  
+<div align="center">
+<img width="900" alt="Login screen on Laptop" src="https://github.com/user-attachments/assets/759b8b74-6dc1-4c91-8724-bfde1dbf4db4" />
+<img width="900" alt="Register screen on Laptop" src="https://github.com/user-attachments/assets/53d2760f-098a-4780-a897-989c33c3f3a6" />
+<img width="900" alt="Home screen on Laptop" src="https://github.com/user-attachments/assets/44507473-7a14-4a1d-bea6-32b5d41948bd" />
+
+
+</div>
+
 ## Architecture Diagram
 </p>
 <p align="center">
-<a><img width="900" height="700" src="https://github.com/user-attachments/assets/9146c6f7-72e9-4f10-ab96-6874e8267fe9" alt="Architecture diagram of Pocketter project"/> </a>
+<a><img width="900" src="https://github.com/user-attachments/assets/9146c6f7-72e9-4f10-ab96-6874e8267fe9" alt="Architecture diagram of Pocketter project"/> </a>
 </p>
 
 ## Trade-offs
@@ -52,14 +72,13 @@
 
 ## Deploying Containers
 
-- Follow these steps to run all services using Docker.
-  - Clone the backend repository  
+- Follow these steps to run backend services using Docker.
+  - Change directory to Pocketter-backend
     ```bash 
-    git clone https://github.com/RohanAC09/Pocketter-backend.git
     cd Pocketter-backend/
     ```
 
-  - Build & run the images with Docker-Compose  
+  - Build & run all the images with Docker-Compose  
     ```bash
     sudo docker compose up -d --build
     ```
@@ -72,6 +91,29 @@
   - Stopping the containers
     ```bash
     sudo docker compose down
+    ```
+
+
+- Follow these steps to run frontend React application using Node.
+  - Change directory to Pocketter-frontend
+    ```bash 
+    cd Pocketter-backend/
+    ```
+
+  - Install dependencies using Node  
+    ```bash
+    npm install
+    ```
+
+  - Run the application locally & follow the link  
+    ```bash
+    npm run dev
+    ```
+
+  - Deploying React application on Github pages
+    ```bash
+    npm install --save-dev gh-pages
+    gh-pages -d dist
     ```
 
 

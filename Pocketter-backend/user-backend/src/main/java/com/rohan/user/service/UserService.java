@@ -38,6 +38,10 @@ public class UserService {
 		userRepository.saveAndFlush(user);
 	}
 
+	public Optional<User> findUserByUsername(String username) {
+		return userRepository.findByUsername(username);
+	}
+
 	public Optional<User> findUserByUserId(Long userId) {
 		return userRepository.findByUserId(userId);
 	}

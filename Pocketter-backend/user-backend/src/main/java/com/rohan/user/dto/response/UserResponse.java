@@ -5,7 +5,7 @@ import java.sql.Timestamp;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
-public class UserResponse {
+public class UserResponse implements ResponseDTO {
 	private String message;
 	private Timestamp timeStamp;
 	

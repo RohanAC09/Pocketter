@@ -39,6 +39,16 @@ public class FollowService {
 	public List<Long> fetchAllFolloweeIds(Long userId) {
 		return followRepository.findAllFolloweeId(userId);
 	}
+
+	public Integer getFollowerCount(Long userId) {
+		// Follower Count - Number of records as Followee
+		return followRepository.findCountByFolloweeId(userId);
+	}
+
+	public Integer getFolloweeCount(Long userId) {
+		// Followee Count - Number of records as Follower
+		return followRepository.findCountByFollowerId(userId);
+	}
 	
 	
 }

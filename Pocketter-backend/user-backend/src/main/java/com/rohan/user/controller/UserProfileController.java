@@ -11,11 +11,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.rohan.user.dto.request.EditUserRequest;
 import com.rohan.user.dto.response.FetchFollowee;
 import com.rohan.user.dto.response.FetchFollower;
+import com.rohan.user.dto.response.ResponseDTO;
 import com.rohan.user.dto.response.UserResponse;
 import com.rohan.user.service.UserProfileService;
 
@@ -30,6 +32,12 @@ public class UserProfileController {
 	@PostMapping("/createUser/{email}")
 	public ResponseEntity<UserResponse> createUser(@PathVariable String email) {
 		return ResponseEntity.ok(userProfileService.createUser(email));
+	}
+	
+	@GetMapping("/fetchProfileDetails")
+	public ResponseEntity<ResponseDTO> fetchProfileDetails(@RequestParam String username,
+						@RequestParam String currentUsername) {
+		return ResponseEntity.ok(userProfileService.getProfileDetails(username, currentUsername));
 	}
 	
 	@GetMapping("/viewProfile/{userId}")

@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 import com.rohan.user.dto.request.EditUserRequest;
 import com.rohan.user.dto.response.FetchFollowee;
 import com.rohan.user.dto.response.FetchFollower;
+import com.rohan.user.dto.response.ProfileDetailsDTO;
+import com.rohan.user.dto.response.ResponseDTO;
 import com.rohan.user.dto.response.UserResponse;
 import com.rohan.user.entity.User;
 
@@ -37,6 +39,26 @@ public class UserProfileService {
         
         String responsemessage="User creation successful";
         return new UserResponse(responsemessage, new Timestamp(System.currentTimeMillis()));
+	}
+
+	public ResponseDTO getProfileDetails(String username, String currentUsername) {
+		Optional<User> optionalUser=userService.findUserByUsername(username);
+		
+		if ( !optionalUser.isPresent()) {
+        	log.info("viewProfile Error: user does not exists: {}", username);
+            return new UserResponse(new String("User does not exists"), new Timestamp(System.currentTimeMillis()));
+        }
+		
+		ProfileDetailsDTO profileDTO = new ProfileDetailsDTO(optionalUser.get());
+        profileDTO.setFollowerCount(followService.getFollowerCount(profileDTO.getUserId()));
+        profileDTO.setFollowingCount(followService.getFolloweeCount(profileDTO.getUserId()));
+        
+        if(username == currentUsername) profileDTO.setFollowing(false);
+        else {
+        	Long currUserId = userService.findUserIdByUsername(currentUsername);
+        	profileDTO.setFollowing(followService.isUserAlreadyFollowing(profileDTO.getUserId(),currUserId));
+        }
+        return profileDTO;
 	}
 
 	public String viewProfile(Long userId) {
